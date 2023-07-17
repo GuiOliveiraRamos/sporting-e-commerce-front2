@@ -23,7 +23,6 @@ export default function ProductsList(props) {
       <Header />
       <ListaProdutos>
         {produto.map((item) => {
-          console.log(item._id.slice(-4))
           return(
           <div data-type={item.type} id= {item._id.slice(-4)} key={item._id.slice(-4)}>
             <img src={item.image} alt="" />

@@ -11,6 +11,7 @@ import Visa from '../assets/visa-logo.png'
 import DinnersClub from '../assets/dinnersclub-logo.png'
 import Mastercard from '../assets/mastercard-logo.png'
 import AmericanExpress from '../assets/american-express-logo.png'
+
 export default function UserInfo() {
     const loggedcontexto = useContext(LoggedContext)
     const navigate = useNavigate()

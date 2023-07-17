@@ -16,7 +16,8 @@ export default function Cart() {
     .catch(err => {console.log(err); setAddedProducts([])})
   },[loggedcontexto.logged])
     let saldo = 0;
-    addedProducts.map(x => {saldo += parseFloat(x.price)})
+    if(addedProducts.length > 0) addedProducts.map(x => {saldo += parseFloat(x.price)})
+    
   return (
     <>
       <MenuLateral />
@@ -32,12 +33,12 @@ export default function Cart() {
             </Saldo>
           </InfoCarrinho> 
         </Topper>
-        {addedProducts.map(x => {
+        {addedProducts.length > 0 ? addedProducts.map(x => {
           return <ProductContainer key={x.name} name={x.name} price={x.price} image={x.image} />
-          })}
+          }): ""}
         <PlaceHolderCart>{loggedcontexto.logged ? (addedProducts.length === 0 ? 'Que pena, parece que seu carrinho está vazio!' : '' ) : 'Você precisa fazer o login para acessar essa parte!'}</PlaceHolderCart>
         <button onClick={() => loggedcontexto.logged ? navigate("/produtos") : navigate("/")}>{loggedcontexto.logged ? 'Continuar comprando' : 'Fazer Login'}</button>
-        {loggedcontexto.logged && addedProducts.length !== 0 ?  <button onClick={() => navigate('/comprador')}>Finalizar Compra</button> : ''}
+        {/*loggedcontexto.logged && addedProducts.length !== 0 ? */ <button onClick={() => navigate('/comprador')}>Finalizar Compra</button>}
       </ContainerCarrinho>
     </>
   );
@@ -105,6 +106,7 @@ const ContainerCarrinho = styled.div`
   left: 18vw;
   bottom: 0;
   right: 0;
+  padding-top: 50px;
   background-color: black;
   display: flex;
   flex-direction: column;

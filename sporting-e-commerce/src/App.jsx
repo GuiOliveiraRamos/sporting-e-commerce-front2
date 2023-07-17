@@ -2,7 +2,6 @@ import Login from "./pages/Login";
 import ProductsList from "./pages/ProductsList";
 import Cart from "./pages/Cart";
 import AboutUs from "./pages/AboutUs";
-import ProductsDetails from "./pages/ProductsDetails";
 import ConfirmPurchase from "./pages/ConfirmPurchase";
 import Purchased from "./pages/Purchased";
 import Home from "./pages/Home";
@@ -36,7 +35,6 @@ if (localStorage.getItem('token')){
           <Route path="/meu-carrinho" element={<Cart />} />
           <Route path="/comprador" element={<UserInfo />} />
           <Route path="/sobre-nos" element={<AboutUs />} />
-          <Route path="/produtos/:id" element={<ProductsDetails />} />
           <Route path="/confirmacao" element={<ConfirmPurchase />} />
           <Route path="/compra-concluida" element={<Purchased />} />
         </Routes>
